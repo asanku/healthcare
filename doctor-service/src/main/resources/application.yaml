@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: doctor-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: doctor_service
+      username:
+      password:
+server:
+  port: 8200
+logging:
+  level:
+    root: WARN
+    org:
+      mongodb:
+        driver: DEBUG
+      springframework:
+        web: WARN
+        data:
+          core:
+            MongoTemplate: DEBUG
+            MongoOperations: DEBUG
+
+  pattern:
+    console: "%msg%n"

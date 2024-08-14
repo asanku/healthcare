@@ -1,0 +1,42 @@
+debug: false
+spring:
+  application:
+    name: patient_service
+  datasource:
+    url: jdbc:h2:mem:patients
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+server:
+  port: 8100
+logging:
+  level:
+    root: warn
+    com:
+      healthcare:
+        patient_service:
+          controller: DEBUG
+          service: DEBUG
+          repository: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+  pattern:
+    console:  "%msg%n"

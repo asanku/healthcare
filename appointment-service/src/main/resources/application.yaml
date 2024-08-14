@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: appointment-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/
+      database: appointment_service
+server:
+  port: 8300
+logging:
+  level:
+    io:
+      github:
+        openfeign: DEBUG
+    feign:
+      client:
+        config:
+          Default: DEBUG
+          default:
+            loggerLevel: DEBUG
+
+    com:
+      healthcare:
+        appointment:
+          service:
+            AppointmentServiceApplication: DEBUG
+            controller:
+              AppointmentController: DEBUG
+            repository:
+              AppointmentRepository: DEBUG
+            service:
+              AppointmentService: DEBUG
+
+    org:
+      mongodb:
+        driver: DEBUG
+      springframework:
+        cloud:
+          openfeign:
+            FeignClient: DEBUG
+
+        data:
+          core:
+            MongoTemplate: DEBUG
+            MongoOperations: DEBUG
+
+# pattern:
+#   console: "%msg%n"
